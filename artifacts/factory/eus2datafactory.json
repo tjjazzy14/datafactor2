@@ -1,0 +1,9 @@
+{
+	"name": "eus2datafactory",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "62a0011a-cdb7-47cc-aef4-3d59010da054",
+		"tenantId": "d269a495-5587-483f-8fc4-1659190b535c"
+	}
+}
