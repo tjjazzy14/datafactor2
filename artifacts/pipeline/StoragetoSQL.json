@@ -42,7 +42,22 @@
 						"tableOption": "autoCreate"
 					},
 					"enableStaging": false,
-					"validateDataConsistency": false,
+					"enableSkipIncompatibleRow": true,
+					"validateDataConsistency": true,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": true
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "AzureBlobStorage1",
+								"type": "LinkedServiceReference"
+							},
+							"path": "logs"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -78,26 +93,6 @@
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "Validation1",
-				"type": "Validation",
-				"dependsOn": [
-					{
-						"activity": "Copy_c8d",
-						"dependencyConditions": [
-							"Failed"
-						]
-					}
-				],
-				"typeProperties": {
-					"dataset": {
-						"referenceName": "DestinationDataset_c8d",
-						"type": "DatasetReference"
-					},
-					"timeout": "7.00:00:00",
-					"sleep": 10
-				}
 			}
 		],
 		"annotations": [],
